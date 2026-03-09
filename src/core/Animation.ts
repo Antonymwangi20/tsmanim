@@ -1,6 +1,6 @@
 // src/core/Animation.ts
 import { Node } from './Node.js';
-import { EasingFunction, Easing } from '../utils/Easing.js';
+import { EasingFunction, Easing } from './utils/Easing.js';
 
 export interface AnimationConfig {
   duration?: number;

@@ -4,8 +4,8 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { program } from 'commander';
 import { Scene } from '../core/Scene.js';
-import { WorkerRenderer } from '../renderer/WorkerRenderer.js';
-import { FFmpeg } from '../utils/FFmpeg.js';
+import { WorkerRenderer } from '../core/renderer/WorkerRenderer.js';
+import { FFmpeg } from '../core/utils/FFmpeg.js';
 import { createRequire } from 'module';
 
 const require = createRequire(import.meta.url);

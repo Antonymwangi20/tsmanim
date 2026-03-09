@@ -1,5 +1,5 @@
 // src/core/Node.ts
-import { Vector2 } from '../utils/Vector2.js';
+import { Vector2 } from './utils/Vector2.js';
 
 export abstract class Node {
   position: Vector2 = new Vector2(0, 0);

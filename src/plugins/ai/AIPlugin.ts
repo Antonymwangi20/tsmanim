@@ -9,7 +9,7 @@
  * Status: Coming in Phase 3
  */
 
-import { Plugin } from '../index';
+import { Plugin } from '../index.js';
 
 export class AIPlugin implements Plugin {
   name = 'ai-features';

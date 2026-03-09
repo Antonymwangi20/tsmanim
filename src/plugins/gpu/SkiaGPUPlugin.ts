@@ -9,7 +9,7 @@
  * Status: Coming in Phase 2
  */
 
-import { Plugin } from '../index';
+import { Plugin } from '../index.js';
 
 export class SkiaGPUPlugin implements Plugin {
   name = 'gpu-skia';

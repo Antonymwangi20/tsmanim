@@ -9,7 +9,7 @@
  * Status: Coming in Phase 5
  */
 
-import { Plugin } from '../index';
+import { Plugin } from '../index.js';
 
 export class CloudPlugin implements Plugin {
   name = 'cloud-rendering';

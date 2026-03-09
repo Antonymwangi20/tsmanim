@@ -1,48 +1,76 @@
+/**
+ * ts-manim - TypeScript Animation Framework
+ *
+ * Export the complete API organized by layer:
+ * 1. Core framework (core/)
+ * 2. Modern TypeScript API (v2/)
+ * 3. Optional plugins (plugins/)
+ * 4. CLI tools (cli/)
+ */
 export { Scene, SceneConfig } from './core/Scene.js';
-export { Node } from './core/Node.js';
-export { Timeline } from './core/Timeline.js';
 export { Animation, AnimationConfig } from './core/Animation.js';
-export { Circle, CircleConfig } from './shapes/Circle.js';
-export { Rect, RectConfig } from './shapes/Rect.js';
-export { Text, TextConfig } from './shapes/Text.js';
-export { SVGPath, SVGPathConfig } from './shapes/SVGPath.js';
-export { Create } from './animations/Create.js';
-export { Move, MoveConfig } from './animations/Move.js';
-export { FadeIn } from './animations/FadeIn.js';
-export { FadeOut } from './animations/FadeOut.js';
-export { Transform, TransformConfig } from './animations/Transform.js';
-export { AdvancedMove } from './animations/AdvancedMove.js';
-export { Keyframe, KeyframeTrack, cubicBezier, catmullRom, hermite } from './animations/Keyframe.js';
-export { SpringAnimation, SpringPhysics, SpringPresets, SpringConfig } from './animations/physics/Spring.js';
-export { Vector2 } from './utils/Vector2.js';
-export { Easing, EasingFunction } from './utils/Easing.js';
-export { SkiaRenderer } from './renderer/SkiaRenderer.js';
-export { WorkerRenderer } from './renderer/WorkerRenderer.js';
-export { SmartRenderer } from './renderer/SmartRenderer.js';
-export { PostProcessStack, BloomConfig, MotionBlurConfig, ColorGradingConfig } from './renderer/PostProcess.js';
-export { PluginManager, Plugin, PluginAPI, pluginManager } from './plugin/PluginManager.js';
-export { AnimationAI, MotionPattern, animationAI } from './ai/AnimationAI.js';
-export { NodeGraph, GraphNode, Port, PortType } from './graph/NodeGraph.js';
-export { ParticleSystem, EmitterConfig, ForceField } from './effects/ParticleSystem.js';
-export { WebExporter, webExporter } from './export/WebExporter.js';
-export { ShaderBuilder, ShaderPresets } from './shaders/ShaderBuilder.js';
-export { CollaborativeSession, createCollaborativeSession, RemoteUser, CollaborationEvent, UndoStackEntry } from './collab/CollaborativeSession.js';
-export { CollaborativeServer, setupCollaborativeServer, ClientConnection, BroadcastMessage } from './collab/CollaborativeServer.js';
-export { GPUCompute, ComputeConfig } from './gpu/GPUCompute.js';
-export { NodeGraphUI } from './graph/NodeGraphUI.js';
-export { CloudInfrastructure, createCloudInfrastructure, RenderOrchestrator, RenderJob, RenderTask, AWSRenderBackend, AWSConfig, GCPRenderBackend, GCPConfig, CloudJobRequest, CloudJobMetrics, CloudProvider, CloudInfrastructureConfig } from './cloud/index.js';
-export { ManimScene, Circle as SimpleCircle, Rect as SimpleRect, SimpleText } from './manim-style/Scene.js';
-export { MovingCameraScene, ThreeDScene, ZoomedScene, LinearTransformationScene, VectorScene } from './manim-style/SceneTypes.js';
-export { VGroup, createGroup } from './manim-style/VGroup.js';
-export { Camera } from './manim-style/Camera.js';
-export { createLine, createPolygon, createTriangle, createRegularPolygon, createStar, createArc, createCircleArc, createAnnulus, createGrid, createBezierCurve, createWave } from './manim-style/Shapes.js';
-export { createEllipse, createSector, createDashedLine, createArrow, createDoubleArrow, createDot, createCross, createRoundedRectangle, createAngle, createRightAngle, createAxes, createNumberLine } from './manim-style/AdvancedShapes.js';
-export { FadeInAnim, FadeOutAnim, MoveAnim, RotateAnim, ScaleAnim, GrowFromCenterAnim, ShrinkToCenterAnim, SpinAnim, FlipAnim, ShineAnim, ColorChangeAnim, IndicateAnim, FlashAnim, PulseAnim, WiggleAnim, ShakeAnim, SwingAnim, BounceAnim, WaveAnim, FollowPathAnim, Rotate3DAnim, SequenceAnim, LaggedStartAnim, SimultaneousAnim, CustomAnim, withDelay, reverseAnim, repeatAnim } from './manim-style/Animations.js';
-export { WriteAnim, UnwriteAnim, DrawBorderThenFillAnim, CreateAnim, SpinInFromNothingAnim, CreateThenFadeOutAnim, TransformAnim, ReplacementTransformAnim, TransformMatchingShapesAnim, ClockwiseTransformAnim, CounterClockwiseTransformAnim, CircumscribeAnim, UnderlineAnim, OverlineAnim, CrossOutAnim, ShowPassingFlashAnim, ShowCreationThenDestructionAnim, BroadcastAnim, CycleReplaceAnim, ApplyToEachAnim, ApplyMethodAnim, ApplyFunctionAnim, ApplyMatrixAnim, ComplexMapAnim, MoveToTargetAnim, ShiftAnim, StretchAnim, ApplyPointwiseFunctionAnim, ApplyComplexFunctionAnim } from './manim-style/AdvancedAnimations.js';
-export { ValueTracker, ComplexValueTracker, UpdaterManager, Succession, Simultaneous, AnimationGroup, LaggedStart, LaggedEnd, createAnimationComposition, chainAnimations, parallelAnimations } from './manim-style/Updaters.js';
-export { ORIGIN, UP, DOWN, LEFT, RIGHT, UL, UR, DL, DR, DEFAULT_STROKE_WIDTH, DEFAULT_FONT_SIZE, DEFAULT_ANIMATION_DURATION, EasingType, smooth, linear, ease_in_sine, ease_out_sine, ease_in_out_sine, ease_in_cubic, ease_out_cubic, ease_in_out_cubic, DEG, PI, TAU, interpolate, lerp, alignPoint, findCenter, vectorAdd, vectorSub, vectorMult, vectorDist, vectorNorm, vectorNormalize, vectorAngle } from './manim-style/Utilities.js';
-export { COLORS, interpolateColor, hexToRgb, rgbToHex, getColor, colorGradient, lighten, darken, invert } from './manim-style/Colors.js';
-export type { SimpleAnimationOptions } from './manim-style/Scene.js';
-export type { CameraConfig } from './manim-style/Camera.js';
-export type { UpdateFunction } from './manim-style/Updaters.js';
+export { Timeline, TimelineConfig } from './core/Timeline.js';
+export { Node, NodeConfig } from './core/Node.js';
+export { Create } from './core/animations/Create.js';
+export { FadeIn } from './core/animations/FadeIn.js';
+export { FadeOut } from './core/animations/FadeOut.js';
+export { Move, MoveConfig } from './core/animations/Move.js';
+export { Transform, TransformConfig } from './core/animations/Transform.js';
+export { AdvancedMove } from './core/animations/AdvancedMove.js';
+export { Keyframe, KeyframeTrack, cubicBezier, catmullRom, hermite } from './core/animations/Keyframe.js';
+export { SpringAnimation, SpringPhysics, SpringPresets, SpringConfig } from './core/animations/physics/Spring.js';
+export { Circle, CircleConfig } from './core/shapes/Circle.js';
+export { Rect, RectConfig } from './core/shapes/Rect.js';
+export { Text, TextConfig } from './core/shapes/Text.js';
+export { SVGPath, SVGPathConfig } from './core/shapes/SVGPath.js';
+export { SkiaRenderer } from './core/renderer/SkiaRenderer.js';
+export { FFmpegRenderer } from './core/renderer/FFmpegRenderer.js';
+export { WorkerRenderer } from './core/renderer/WorkerRenderer.js';
+export { SmartRenderer } from './core/renderer/SmartRenderer.js';
+export { PostProcessStack, BloomConfig, MotionBlurConfig, ColorGradingConfig } from './core/renderer/PostProcess.js';
+export { ParticleSystem, EmitterConfig, ForceField } from './core/effects/ParticleSystem.js';
+export { Vector2 } from './core/utils/Vector2.js';
+export { Easing, EasingFunction } from './core/utils/Easing.js';
+export { FFmpeg } from './core/utils/FFmpeg.js';
+export { WebExporter, webExporter } from './core/export/WebExporter.js';
+export * from './core/manim-style/index.js';
+export { Dimension, Point2D, Point3D, Point4D, Vec2D, Vec3D, Vec4D, MobjectConfig, Mobject, Mobject2D, Mobject3D, Mobject4D, MobjectGroup, TrackedValue, ValueChangeListener, is2D, is3D, is4D, validateHierarchy, Scene as SceneDecorator, SceneConfig as DecoratorSceneConfig, Track, TrackConfig, EntryPoint, Cached, CacheConfig, Property, PropertyConfig, Constraint as ConstraintDecorator, ConstraintConfig, Validator, extractDecoratorMetadata, ConstraintInterface, ConstraintValue, EqualityConstraint, IncidenceConstraint, TangencyConstraint, DistanceConstraint, ConstraintSolver, ConstraintBuilder } from './v2/index.js';
+export { SkiaGPUPlugin, GPUCompute, ComputeConfig, ShaderBuilder, ShaderPresets } from './plugins/gpu/index.js';
+export { AIPlugin, AnimationAI, MotionPattern, animationAI } from './plugins/ai/index.js';
+export { CloudPlugin, CloudInfrastructure, createCloudInfrastructure, RenderOrchestrator, RenderJob, RenderTask, AWSRenderBackend, AWSConfig, GCPRenderBackend, GCPConfig, CloudJobRequest, CloudJobMetrics, CloudProvider, CloudInfrastructureConfig } from './plugins/cloud/index.js';
+export { CollaborativeServer, setupCollaborativeServer, ClientConnection, BroadcastMessage, CollaborativeSession, createCollaborativeSession, RemoteUser, CollaborationEvent, UndoStackEntry } from './plugins/collab/index.js';
+export { NodeGraph, GraphNode, Port, PortType, NodeGraphUI } from './plugins/ui/index.js';
+export { PluginManager, Plugin, PluginAPI, pluginManager } from './plugins/PluginManager.js';
+export declare const VERSION = "2.0.0";
+export declare const FRAMEWORK_NAME = "ts-manim";
+/**
+ * API Layers:
+ *
+ * 1. CORE (./core/)
+ *    - Scene, Animation, Timeline, Node
+ *    - Shapes: Circle, Rect, Text, SVGPath
+ *    - Animations: Move, Fade, Transform, etc.
+ *    - Renderers: Skia, FFmpeg, Worker
+ *    - Manim-compatible API
+ *
+ * 2. V2 (./v2/)
+ *    - Generic Mobject<T> with dimensional types
+ *    - Decorator-based configuration
+ *    - Constraint solver for mechanical animation
+ *    - Best for: Type-safe, compile-time validation
+ *
+ * 3. PLUGINS (./plugins/)
+ *    - GPU acceleration (WebGPU compute shaders)
+ *    - AI-powered generation
+ *    - Cloud rendering infrastructure
+ *    - Collaborative editing
+ *    - Node-based UI editor
+ *
+ * 4. CLI (./cli/)
+ *    - tsm: Professional video generation
+ *    - mathviz: Scientific visualization
+ *    - render: Video encoding
+ *
+ * Import only what you need - everything is tree-shakeable!
+ */
 //# sourceMappingURL=index.d.ts.map

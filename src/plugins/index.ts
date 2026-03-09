@@ -115,7 +115,7 @@ export const globalPluginManager = new PluginManager();
 export async function registerBuiltinPlugins(): Promise<void> {
   // GPU plugin (optional, loaded from src/plugins/gpu/index.ts)
   try {
-    const { SkiaGPUPlugin } = await import('./gpu/SkiaGPUPlugin');
+    const { SkiaGPUPlugin } = await import('./gpu/SkiaGPUPlugin.js');
     globalPluginManager.register(new SkiaGPUPlugin());
   } catch (e) {
     // GPU plugin not available (skia-canvas not installed)
@@ -123,7 +123,7 @@ export async function registerBuiltinPlugins(): Promise<void> {
 
   // AI plugin (optional, loaded from src/plugins/ai/index.ts)
   try {
-    const { AIPlugin } = await import('./ai/AIPlugin');
+    const { AIPlugin } = await import('./ai/AIPlugin.js');
     globalPluginManager.register(new AIPlugin());
   } catch (e) {
     // AI plugin not available
@@ -131,9 +131,31 @@ export async function registerBuiltinPlugins(): Promise<void> {
 
   // Cloud plugin (optional, loaded from src/plugins/cloud/index.ts)
   try {
-    const { CloudPlugin } = await import('./cloud/CloudPlugin');
+    const { CloudPlugin } = await import('./cloud/CloudPlugin.js');
     globalPluginManager.register(new CloudPlugin());
   } catch (e) {
     // Cloud plugin not available
   }
 }
+
+// Export individual plugins
+export { SkiaGPUPlugin } from './gpu/SkiaGPUPlugin.js';
+export { GPUCompute } from './gpu/GPUCompute.js';
+export { ShaderBuilder } from './gpu/ShaderBuilder.js';
+
+export { AIPlugin } from './ai/AIPlugin.js';
+export { AnimationAI } from './ai/AnimationAI.js';
+
+export { CloudPlugin } from './cloud/CloudPlugin.js';
+export { AWSRenderBackend } from './cloud/AWSRenderBackend.js';
+export { GCPRenderBackend } from './cloud/GCPRenderBackend.js';
+export { CloudInfrastructure } from './cloud/CloudInfrastructure.js';
+export { RenderOrchestrator } from './cloud/RenderOrchestrator.js';
+
+export { CollaborativeServer } from './collab/CollaborativeServer.js';
+export { CollaborativeSession } from './collab/CollaborativeSession.js';
+
+export { NodeGraph } from './ui/graph/NodeGraph.js';
+export { NodeGraphUI } from './ui/graph/NodeGraphUI.js';
+
+export { PluginManager };
