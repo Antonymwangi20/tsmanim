@@ -1,6 +1,6 @@
 // src/renderer/SkiaRenderer.ts
 import { Canvas, Image } from 'skia-canvas';
-import { Scene } from '../core/Scene.js';
+import { Scene } from '../Scene.js';
 import * as fs from 'fs';
 import * as path from 'path';
 

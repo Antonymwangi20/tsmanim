@@ -40,7 +40,7 @@ export {
   // Value tracking
   TrackedValue,
   ValueChangeListener
-} from './types';
+} from './types.js';
 
 // ============================================================================
 // Decorators & Metadata
@@ -82,7 +82,7 @@ export {
   // Metadata extraction
   DecoratorMetadata,
   extractDecoratorMetadata
-} from './decorators';
+} from './decorators.js';
 
 // ============================================================================
 // Constraints & Solver
@@ -102,7 +102,7 @@ export {
   // Solver
   ConstraintSolver,
   ConstraintBuilder
-} from './constraints';
+} from './constraints.js';
 
 // ============================================================================
 // Version & Metadata

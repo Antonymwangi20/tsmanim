@@ -2,7 +2,7 @@
  * VGroup - Vector Group for grouping multiple objects
  */
 
-import { Node } from '../core/Node.js';
+import { Node } from '../Node.js';
 import type { Vector2 } from './Utilities.js';
 import { findCenter, vectorAdd, vectorMult } from './Utilities.js';
 

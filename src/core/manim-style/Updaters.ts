@@ -2,7 +2,7 @@
  * Updater system for dynamic animations and value tracking
  */
 
-import type { Node } from '../core/Node.js';
+import type { Node } from '../Node.js';
 
 /**
  * Value tracker for animatable variables

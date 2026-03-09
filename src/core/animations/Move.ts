@@ -1,6 +1,6 @@
-// src/animations/Move.ts
-import { Animation, AnimationConfig } from '../core/Animation.js';
-import { Node } from '../core/Node.js';
+// src/core/animations/Move.ts
+import { Animation, AnimationConfig } from '../Animation.js';
+import { Node } from '../Node.js';
 import { Vector2 } from '../utils/Vector2.js';
 
 export interface MoveConfig extends AnimationConfig {

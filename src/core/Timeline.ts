@@ -1,6 +1,11 @@
 // src/core/Timeline.ts
 import { Animation } from './Animation.js';
 
+export interface TimelineConfig {
+  autoStart?: boolean;
+  loop?: boolean;
+}
+
 export class Timeline {
   private animations: Animation[] = [];
   private currentTime: number = 0;

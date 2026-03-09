@@ -1,6 +1,6 @@
 // src/renderer/SmartRenderer.ts
 import { Canvas } from 'skia-canvas';
-import { Scene } from '../core/Scene.js';
+import { Scene } from '../Scene.js';
 import * as crypto from 'crypto';
 
 interface CacheEntry {

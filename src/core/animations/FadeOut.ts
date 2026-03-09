@@ -1,6 +1,6 @@
 // src/animations/FadeOut.ts
-import { Animation, AnimationConfig } from '../core/Animation.js';
-import { Node } from '../core/Node.js';
+import { Animation, AnimationConfig } from '../Animation.js';
+import { Node } from '../Node.js';
 import { FadeIn } from './FadeIn.js';
 
 export class FadeOut extends Animation {

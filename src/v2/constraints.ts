@@ -7,7 +7,7 @@
  * - Type-safe constraint composition
  */
 
-import { Mobject, Point2D, Point3D, TrackedValue, Vec2D, Vec3D } from './types';
+import { Mobject, Point2D, Point3D, TrackedValue, Vec2D, Vec3D } from './types.js';
 
 // ============================================================================
 // Constraint Type System

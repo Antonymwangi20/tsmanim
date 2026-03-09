@@ -1,6 +1,6 @@
 // src/animations/AdvancedMove.ts
-import { Animation, AnimationConfig } from '../core/Animation.js';
-import { Node } from '../core/Node.js';
+import { Animation, AnimationConfig } from '../Animation.js';
+import { Node } from '../Node.js';
 import { Vector2 } from '../utils/Vector2.js';
 import { Easing, EasingFunction } from '../utils/Easing.js';
 import { KeyframeTrack, Keyframe, catmullRom } from './Keyframe.js';

@@ -1,8 +1,8 @@
 // src/ai/AnimationAI.ts
-import { Node } from '../core/Node.js';
-import { Animation } from '../core/Animation.js';
-import { Vector2 } from '../utils/Vector2.js';
-import { AdvancedMove } from '../animations/AdvancedMove.js';
+import { Node } from '../../core/Node.js';
+import { Animation } from '../../core/Animation.js';
+import { Vector2 } from '../../core/utils/Vector2.js';
+import { AdvancedMove } from '../../core/animations/AdvancedMove.js';
 
 export interface MotionPattern {
   name: string;

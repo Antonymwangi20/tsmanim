@@ -6,7 +6,7 @@
  */
 
 import { NodeGraph, GraphNode } from './NodeGraph.js';
-import { Vector2 } from '../utils/Vector2.js';
+import { Vector2 } from '../../../core/utils/Vector2.js';
 
 export interface UIConfig {
   canvas: HTMLCanvasElement | OffscreenCanvas;

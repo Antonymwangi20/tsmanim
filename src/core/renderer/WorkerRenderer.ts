@@ -2,7 +2,7 @@
 import { Worker, isMainThread, parentPort, workerData } from 'worker_threads';
 import * as path from 'path';
 import * as os from 'os';
-import { Scene } from '../core/Scene.js';
+import { Scene } from '../Scene.js';
 import { SkiaRenderer, RenderConfig } from './SkiaRenderer.js';
 
 interface WorkerTask {
@@ -128,7 +128,7 @@ if (!isMainThread && workerData) {
   async function runWorker() {
     try {
       // Dynamically import scene module
-      const { Scene } = await import('../core/Scene.js');
+      const { Scene } = await import('../Scene.js');
       
       // Recreate scene from serialized data
       const scene = new Scene({

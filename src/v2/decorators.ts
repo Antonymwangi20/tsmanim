@@ -8,7 +8,11 @@
  * - @Cached for memoization and GPU caching
  */
 
-import { TrackedValue, Mobject } from './types';
+import 'reflect-metadata';
+import { TrackedValue, Mobject } from './types.js';
+
+// Type-safe Reflect API wrapper (for decorators without reflect-metadata package)
+const reflectApi = Reflect as any;
 
 // ============================================================================
 // Scene Decorator
@@ -44,7 +48,7 @@ export function Scene(config: SceneConfig = {}) {
       ...config
     };
 
-    Reflect.defineMetadata(SCENE_METADATA_KEY, defaults, constructor);
+    reflectApi.defineMetadata(SCENE_METADATA_KEY, defaults, constructor);
     Object.defineProperty(constructor.prototype, '__sceneConfig', {
       value: defaults,
       writable: false,
@@ -56,7 +60,7 @@ export function Scene(config: SceneConfig = {}) {
 }
 
 export function getSceneConfig(target: any): SceneConfig | undefined {
-  return Reflect.getMetadata(SCENE_METADATA_KEY, target.constructor);
+  return reflectApi.getMetadata(SCENE_METADATA_KEY, target.constructor);
 }
 
 // ============================================================================
@@ -91,14 +95,14 @@ export interface TrackConfig {
  */
 export function Track(config: TrackConfig = { interpolate: true, cacheable: true }) {
   return function (target: any, propertyKey: string) {
-    const trackedProps = Reflect.getOwnMetadata(TRACKED_PROPERTIES_KEY, target) || [];
+    const trackedProps = reflectApi.getOwnMetadata(TRACKED_PROPERTIES_KEY, target) || [];
     trackedProps.push({ propertyKey, config });
-    Reflect.defineMetadata(TRACKED_PROPERTIES_KEY, trackedProps, target);
+    reflectApi.defineMetadata(TRACKED_PROPERTIES_KEY, trackedProps, target);
   };
 }
 
 export function getTrackedProperties(target: any): Array<{ propertyKey: string; config: TrackConfig }> {
-  return Reflect.getMetadata(TRACKED_PROPERTIES_KEY, target) || [];
+  return reflectApi.getMetadata(TRACKED_PROPERTIES_KEY, target) || [];
 }
 
 // ============================================================================
@@ -132,17 +136,17 @@ const ENTRY_POINT_KEY = Symbol('entrypoint:method');
  */
 export function EntryPoint() {
   return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
-    const existing = Reflect.getMetadata(ENTRY_POINT_KEY, target);
+    const existing = reflectApi.getMetadata(ENTRY_POINT_KEY, target);
     if (existing) {
       throw new Error(`Scene can only have one @EntryPoint. Found: ${existing}, ${propertyKey}`);
     }
-    Reflect.defineMetadata(ENTRY_POINT_KEY, propertyKey, target);
+    reflectApi.defineMetadata(ENTRY_POINT_KEY, propertyKey, target);
     return descriptor;
   };
 }
 
 export function getEntryPoint(target: any): string | undefined {
-  return Reflect.getMetadata(ENTRY_POINT_KEY, target);
+  return reflectApi.getMetadata(ENTRY_POINT_KEY, target);
 }
 
 // ============================================================================
@@ -190,8 +194,10 @@ export function Cached(config: CacheConfig = {}) {
 
       if (cacheStore.size > 100) {
         // Simple LRU: clear oldest entries
-        const firstKey = cacheStore.keys().next().value;
-        cacheStore.delete(firstKey);
+        const firstKey = cacheStore.keys().next().value as string | undefined;
+        if (firstKey !== undefined) {
+          cacheStore.delete(firstKey);
+        }
       }
 
       cacheStore.set(key, result);
@@ -227,14 +233,14 @@ export interface PropertyConfig {
  */
 export function Property(config: PropertyConfig = {}) {
   return function (target: any, propertyKey: string) {
-    const properties = Reflect.getOwnMetadata(PROPERTY_METADATA_KEY, target) || {};
+    const properties = reflectApi.getOwnMetadata(PROPERTY_METADATA_KEY, target) || {};
     properties[propertyKey] = config;
-    Reflect.defineMetadata(PROPERTY_METADATA_KEY, properties, target);
+    reflectApi.defineMetadata(PROPERTY_METADATA_KEY, properties, target);
   };
 }
 
 export function getPropertyConfig(target: any, propertyKey: string): PropertyConfig | undefined {
-  const properties = Reflect.getMetadata(PROPERTY_METADATA_KEY, target);
+  const properties = reflectApi.getMetadata(PROPERTY_METADATA_KEY, target);
   return properties?.[propertyKey];
 }
 
@@ -271,15 +277,15 @@ export interface ConstraintConfig {
  */
 export function Constraint(config: ConstraintConfig = {}) {
   return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
-    const constraints = Reflect.getOwnMetadata(CONSTRAINTS_KEY, target) || [];
+    const constraints = reflectApi.getOwnMetadata(CONSTRAINTS_KEY, target) || [];
     constraints.push({ propertyKey, config, fn: descriptor.value });
-    Reflect.defineMetadata(CONSTRAINTS_KEY, constraints, target);
+    reflectApi.defineMetadata(CONSTRAINTS_KEY, constraints, target);
     return descriptor;
   };
 }
 
 export function getConstraints(target: any): Array<{ propertyKey: string; config: ConstraintConfig; fn: ConstraintFn }> {
-  return Reflect.getMetadata(CONSTRAINTS_KEY, target) || [];
+  return reflectApi.getMetadata(CONSTRAINTS_KEY, target) || [];
 }
 
 // ============================================================================
@@ -302,14 +308,14 @@ export type ValidatorFn<T = any> = (value: T) => { valid: boolean; error?: strin
  */
 export function Validator<T = any>(validatorFn: ValidatorFn<T>) {
   return function (target: any, propertyKey: string) {
-    const validators = Reflect.getOwnMetadata(VALIDATORS_KEY, target) || [];
+    const validators = reflectApi.getOwnMetadata(VALIDATORS_KEY, target) || [];
     validators.push({ propertyKey, fn: validatorFn });
-    Reflect.defineMetadata(VALIDATORS_KEY, validators, target);
+    reflectApi.defineMetadata(VALIDATORS_KEY, validators, target);
   };
 }
 
 export function getValidators(target: any): Array<{ propertyKey: string; fn: ValidatorFn }> {
-  return Reflect.getMetadata(VALIDATORS_KEY, target) || [];
+  return reflectApi.getMetadata(VALIDATORS_KEY, target) || [];
 }
 
 // ============================================================================
@@ -338,7 +344,7 @@ export function extractDecoratorMetadata(target: any): DecoratorMetadata {
 // Metadata Setup (For projects not using reflect-metadata)
 // ============================================================================
 
-if (typeof Reflect === 'undefined' || !Reflect.metadata) {
+if (typeof reflectApi === 'undefined' || !reflectApi.metadata) {
   const metadata = new WeakMap<any, Map<Symbol, any>>();
 
   (global as any).Reflect = {

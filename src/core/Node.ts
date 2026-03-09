@@ -1,6 +1,14 @@
 // src/core/Node.ts
 import { Vector2 } from './utils/Vector2.js';
 
+export interface NodeConfig {
+  position?: Vector2;
+  scale?: Vector2;
+  rotation?: number;
+  opacity?: number;
+  visible?: boolean;
+}
+
 export abstract class Node {
   position: Vector2 = new Vector2(0, 0);
   scale: Vector2 = new Vector2(1, 1);

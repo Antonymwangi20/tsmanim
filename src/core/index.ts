@@ -23,7 +23,7 @@ export { Move } from './animations/Move.js';
 export { Transform } from './animations/Transform.js';
 export { AdvancedMove } from './animations/AdvancedMove.js';
 export { Keyframe } from './animations/Keyframe.js';
-export { Spring } from './animations/physics/Spring.js';
+export { SpringAnimation, SpringPhysics, SpringPresets } from './animations/physics/Spring.js';
 
 // Shapes
 export { Circle } from './shapes/Circle.js';
@@ -36,7 +36,7 @@ export { SkiaRenderer } from './renderer/SkiaRenderer.js';
 export { FFmpegRenderer } from './renderer/FFmpegRenderer.js';
 export { WorkerRenderer } from './renderer/WorkerRenderer.js';
 export { SmartRenderer } from './renderer/SmartRenderer.js';
-export { PostProcess } from './renderer/PostProcess.js';
+export { PostProcessStack } from './renderer/PostProcess.js';
 
 // Manim-style API
 export * from './manim-style/index.js';

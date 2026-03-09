@@ -152,7 +152,7 @@ export abstract class Mobject<T extends Dimension = Point2D> {
   abstract readonly dimensionality: number;
 
   constructor(protected config: MobjectConfig = {}) {
-    this._position = new TrackedValue(config.position as T);
+    this._position = new TrackedValue(((config.position ?? { x: 0, y: 0 }) as unknown) as T);
     this._rotation = new TrackedValue(config.rotation ?? 0);
     this._scale = new TrackedValue(config.scale ?? 1);
     this._opacity = new TrackedValue(config.opacity ?? 1);

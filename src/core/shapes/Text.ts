@@ -1,5 +1,5 @@
 // src/shapes/Text.ts
-import { Node } from '../core/Node.js';
+import { Node } from '../Node.js';
 import { Vector2 } from '../utils/Vector2.js';
 
 export interface TextConfig {

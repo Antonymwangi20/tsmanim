@@ -157,5 +157,3 @@ export { CollaborativeSession } from './collab/CollaborativeSession.js';
 
 export { NodeGraph } from './ui/graph/NodeGraph.js';
 export { NodeGraphUI } from './ui/graph/NodeGraphUI.js';
-
-export { PluginManager };

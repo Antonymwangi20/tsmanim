@@ -79,7 +79,7 @@ program
       console.log(`\n✨ Successfully created: ${options.output}`);
       console.log(`💾 File size: ${(Math.random() * 50 + 10).toFixed(1)} MB`);
     } catch (error) {
-      console.error(`❌ Error: ${error.message}`);
+      console.error(`❌ Error: ${(error as Error).message}`);
       process.exit(1);
     }
   });
@@ -194,7 +194,7 @@ program
 
       console.log(`\n✨ All checks passed!`);
     } catch (error) {
-      console.error(`\n❌ Validation failed: ${error.message}`);
+      console.error(`\n❌ Validation failed: ${(error as Error).message}`);
       process.exit(1);
     }
   });

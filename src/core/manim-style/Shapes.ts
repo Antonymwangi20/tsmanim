@@ -6,7 +6,7 @@ import { SVGPath as SVGPathShape } from '../shapes/SVGPath.js';
 import { Circle as CircleShape, CircleConfig } from '../shapes/Circle.js';
 import { Rect as RectShape, RectConfig } from '../shapes/Rect.js';
 import { Text as TextShape, TextConfig } from '../shapes/Text.js';
-import { Node } from '../core/Node.js';
+import { Node } from '../Node.js';
 import type { Vector2 } from './Utilities.js';
 
 /**

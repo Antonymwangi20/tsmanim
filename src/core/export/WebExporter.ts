@@ -1,6 +1,6 @@
 // src/export/WebExporter.ts
-import { Scene } from '../core/Scene.js';
-import { Node } from '../core/Node.js';
+import { Scene } from '../Scene.js';
+import { Node } from '../Node.js';
 
 /**
  * Export animations to interactive web formats

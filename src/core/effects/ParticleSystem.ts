@@ -1,5 +1,5 @@
 // src/effects/ParticleSystem.ts
-import { Node } from '../core/Node.js';
+import { Node } from '../Node.js';
 import { Vector2 } from '../utils/Vector2.js';
 import { Canvas } from 'skia-canvas';
 

@@ -4,9 +4,9 @@
  * High-level API for creating animations with minimal boilerplate
  */
 
-import { Scene as CoreScene } from '../core/Scene.js';
-import { Node } from '../core/Node.js';
-import { Timeline } from '../core/Timeline.js';
+import { Scene as CoreScene } from '../Scene.js';
+import { Node } from '../Node.js';
+import { Timeline } from '../Timeline.js';
 import { Circle as CircleShape, CircleConfig } from '../shapes/Circle.js';
 import { Rect as RectShape, RectConfig } from '../shapes/Rect.js';
 import { Text as TextShape, TextConfig } from '../shapes/Text.js';
