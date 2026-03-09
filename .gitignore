@@ -1,0 +1,10 @@
+node_modules/
+dist/
+dev-server/
+extension/
+
+# Ignore all files in examples/ except those explicitly allowed
+examples/
+!examples/allowed-file.ts
+!examples/allowed-folder/
+!examples/allowed-folder/allowed-file.ts
