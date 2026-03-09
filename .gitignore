@@ -1,10 +1,44 @@
+# Dependencies & build outputs
 node_modules/
 dist/
-dev-server/
-extension/
+build/
+*.tsbuildinfo
 
-# Ignore all files in examples/ except those explicitly allowed
-examples/
-!examples/allowed-file.ts
-!examples/allowed-folder/
-!examples/allowed-folder/allowed-file.ts
+# Runtime & cache
+*.log
+.cache/
+.tmp/
+
+# Output files
+*.mp4
+*.webm
+*.mov
+*.png
+output/
+videos/
+frames/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE & OS
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+*.sublime-project
+*.sublime-workspace
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Package manager lock files (keep for reproducible installs)
+# package-lock.json
+# yarn.lock
+pnpm-lock.yaml
