@@ -6,13 +6,16 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
-    "anim": "./dist/cli/render.js"
+    "tsm": "./dist/cli/tsm.js",
+    "anim": "./dist/cli/render.js",
+    "mathviz": "./dist/cli/mathviz.js"
   },
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
     "render": "node dist/cli/render.js",
-    "example": "npm run build && node dist/cli/render.js render dist/examples/sample-scene.js",
+    "tsm": "node dist/cli/tsm.js",
+    "example": "npm run build && npm run tsm -- -qm examples/example-workflow.ts demo -f ./outputs",
     "dev:preview": "cd dev-server && npm install && npm start"
   },
   "keywords": [
