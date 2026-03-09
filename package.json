@@ -26,8 +26,22 @@
     "skia",
     "ffmpeg"
   ],
-  "author": "",
+  "author": "Antony Mwangi",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Antonymwangi20/tsmanim.git"
+  },
+  "homepage": "https://github.com/Antonymwangi20/tsmanim#readme",
+  "files": [
+    "dist/",
+    "README.md",
+    "USAGE_GUIDE.md",
+    "ARCHITECTURE.md",
+    "V2_ARCHITECTURE.md",
+    "LICENSE",
+    "package.json"
+  ],
   "dependencies": {
     "skia-canvas": "^1.0.1",
     "commander": "^11.0.0"
